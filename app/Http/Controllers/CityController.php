@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\CityService;
 use App\City;
+use App\Http\Requests\CitiesRequest;
 
 class CityController extends Controller
 {
@@ -19,7 +19,7 @@ class CityController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(CitiesRequest $request)
     {
         $onlyHasWeather = $request->input('onlyHasWeather');
         $lat = $request->input('lat');

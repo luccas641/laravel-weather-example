@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\WeatherService;
+use App\Http\Requests\WeatherRequest;
 
 class WeatherController extends Controller
 {
@@ -24,7 +24,7 @@ class WeatherController extends Controller
      *  "message": "Resource not found"
      * }
      */
-    public function index(Request $request, $city)
+    public function index(WeatherRequest $request, $city)
     {
         $from = $request->input('from');
         $to = $request->input('to');

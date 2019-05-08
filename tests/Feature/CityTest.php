@@ -103,4 +103,16 @@ class CityTest extends TestCase
        $response
            ->assertStatus(404);
    }
+   /**
+   * A basic feature test example.
+   *
+   * @return void
+   */
+   public function testInvalidCall()
+   {
+     $response = $this->json('GET', '/api/cities?lat=123');
+
+      $response
+          ->assertStatus(422);
+   }
 }
