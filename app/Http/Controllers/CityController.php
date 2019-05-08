@@ -16,7 +16,7 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, CityService $cityService)
+    public function index(Request $request)
     {
         $onlyHasWeather = $request->input('onlyHasWeather');
         $lat = $request->input('lat');

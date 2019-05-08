@@ -23,10 +23,6 @@ class CityService {
     return $cities;
   }
 
-  public static function filterDateRange() {
-    
-  }
-
   public static function filterLocation($cities, $lat, $lng) {
     
     $cities = $cities->filter(function($item) use ($lat, $lng) {

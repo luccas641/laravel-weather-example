@@ -498,6 +498,56 @@ class WatherTest extends TestCase
         );
     }
 
+
+      /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testFilterDate()
+    {
+        $response = $this->json('GET', '/api/cities/3531732/weather?from=1489427999&to=1489428001');
+
+        $response
+            ->assertStatus(200)
+            ->assertJson(array (
+                'cityId' => 3531732,
+                'data' => 
+                array (
+                  0 => 
+                  array (
+                    'dt' => 1489428000,
+                    'temp' => 
+                    array (
+                      'day' => 299.15,
+                      'min' => 298.2,
+                      'max' => 299.15,
+                      'night' => 298.2,
+                      'eve' => 299.15,
+                      'morn' => 299.15,
+                    ),
+                    'pressure' => 1027.35,
+                    'humidity' => 100,
+                    'weather' => 
+                    array (
+                      0 => 
+                      array (
+                        'id' => 803,
+                        'main' => 'Clouds',
+                        'description' => 'broken clouds',
+                        'icon' => '04n',
+                      ),
+                    ),
+                    'speed' => 6.71,
+                    'deg' => 337,
+                    'clouds' => 68,
+                    'uvi' => 10.34,
+                  ),
+              )
+            )
+        );
+    }
+
      /**
      * A basic feature test example.
      *

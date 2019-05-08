@@ -2,37 +2,16 @@
 
 namespace App\Services;
 
-use App\City;
 use App\Weather;
 
 class WeatherService {
-  public static function getAll() {
-    $cityModel = new City();
-    $cities = $cityModel->collection();
-    return $cities;
-  } 
-  public static function getAllHasWeather() {
+  public static function getByCityId($city) {
     $weatherModel = new Weather();
-    $weather = $weatherModel->collection()->pluck('cityId')->all();
-    
-    $cities = WeatherService::getAll();
-    $cities = $cities->filter(function($item) use ($weather) {
-      return in_array($item->id, $weather);
-    });
+    $weather = $weatherModel->collection()->where('cityId', $city)->first();
+    return $weather;
+  } 
 
-    return $cities;
-  }
-
-  public static function filterDateRange() {
-    
-  }
-
-  public static function filterLocation($cities, $lat, $lng) {
-    
-    $cities = $cities->filter(function($item) use ($lat, $lng) {
-      return $item->coord->lat == $lat && $item->coord->lon == $lng;
-    });
-
-    return $cities;
+  public static function filterDateRange($weatherList, $from, $to) {
+    return $weatherList->whereBetween([$from, $to]);
   }
 }
