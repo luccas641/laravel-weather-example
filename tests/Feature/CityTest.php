@@ -63,6 +63,33 @@ class CityTest extends TestCase
             ->assertStatus(200)
             ->assertJsonCount(48);
     }
+    /**
+    * A basic feature test example.
+    *
+    * @return void
+    */
+   public function testGetAllHasWeather()
+   {
+       $response = $this->json('GET', '/api/cities?onlyHasWeather=1');
+
+       $response
+           ->assertStatus(200)
+           ->assertJsonCount(2);
+   }
+
+   /**
+   * A basic feature test example.
+   *
+   * @return void
+   */
+  public function testFilterLocation()
+  {
+      $response = $this->json('GET', '/api/cities?lat=19.85&lng=-90.533333');
+
+      $response
+          ->assertStatus(200)
+          ->assertJsonCount(1);
+  }
 
     /**
     * A basic feature test example.

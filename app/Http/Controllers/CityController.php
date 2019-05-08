@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\CityService;
 use App\City;
 
 class CityController extends Controller
@@ -10,22 +11,27 @@ class CityController extends Controller
      /**
      * Display a listing of the resource.
      * @param  int  $onlyHasWeather
+     * @param  int  $lat
+     * @param  int  $lng
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, CityService $cityService)
     {
+        $onlyHasWeather = $request->input('onlyHasWeather');
+        $lat = $request->input('lat');
+        $lng = $request->input('lng');
 
-        $cityModel = new City();
-        $cities = $cityModel->collection()
-            ->map(function($item, $key) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name
-                ];
-            })
-            ->all();
-        
+        $cities = [];
+        if($onlyHasWeather) {
+            $cities = CityService::getAllHasWeather();
+        } else {
+            $cities = CityService::getAll();
+        }
+        if($lat && $lng) {
+            $cities = CityService::filterLocation($cities, $lat, $lng);
+        }
+       
         return response()->json($cities);        
     }
 
