@@ -12,6 +12,6 @@ class WeatherService {
   } 
 
   public static function filterDateRange($weatherList, $from, $to) {
-    return collect($weatherList)->whereBetween('dt', [$from, $to]);
+    return collect($weatherList)->whereBetween('dt', [strtotime($from), strtotime($to)]);
   }
 }

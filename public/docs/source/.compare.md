@@ -36,9 +36,9 @@ curl -X GET -G "http://localhost/api/cities"
 const url = new URL("http://localhost/api/cities");
 
     let params = {
-            "onlyHasWeather": "non",
-            "lat": "minima",
-            "lng": "facere",
+            "onlyHasWeather": "et",
+            "lat": "totam",
+            "lng": "provident",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -220,8 +220,8 @@ curl -X GET -G "http://localhost/api/cities/1/weather"
 const url = new URL("http://localhost/api/cities/1/weather");
 
     let params = {
-            "from": "cupiditate",
-            "to": "id",
+            "from": "voluptates",
+            "to": "est",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 

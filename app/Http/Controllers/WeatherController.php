@@ -11,7 +11,7 @@ class WeatherController extends Controller
      * Display the weather for a city.
      * @group  Weather
      * @example cities/3531732/weather Get all weather information to the city.
-     * @example cities/3531732/weather?from=1489427999&to=1489428001 Get weather information of the city filtered by date range.
+     * @example cities/3531732/weather?from=2017-03-12&to=2017-03-21 Get weather information of the city filtered by date range.
       
      * @return \Illuminate\Http\Response
      * 

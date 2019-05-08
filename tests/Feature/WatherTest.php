@@ -506,7 +506,7 @@ class WatherTest extends TestCase
      */
     public function testFilterDate()
     {
-        $response = $this->json('GET', '/api/cities/3531732/weather?from=1489427999&to=1489428001');
+        $response = $this->json('GET', '/api/cities/3531732/weather?from=2017-03-12&to=2017-03-21');
 
         $response
             ->assertStatus(200)
@@ -568,7 +568,7 @@ class WatherTest extends TestCase
     */
     public function testInvalidCall()
     {
-      $response = $this->json('GET', '/api/cities/3531732/weather?from=1489427999');
+      $response = $this->json('GET', '/api/cities/3531732/weather?from=2017-03-12');
 
        $response
            ->assertStatus(422);

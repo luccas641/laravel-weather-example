@@ -24,8 +24,8 @@ class WeatherRequest extends FormRequest
     public function rules()
     {
         return [
-            'from' => "required_with:to|numeric",
-            'to' => "required_with:from|numeric"
+            'from' => "required_with:to|date",
+            'to' => "required_with:from|date"
         ];
     }
 }
