@@ -1,4 +1,4 @@
-## Laravel Weather Example
+## Laravel Weather API Example
 
 ### Usage
 
@@ -8,3 +8,7 @@
 - composer install
 - docker-compose up
 - server will run on localhost:80
+
+### Documentation
+
+Documentation on /docs
