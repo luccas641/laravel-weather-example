@@ -24,7 +24,7 @@ class WeatherController extends Controller
         }
 
         if($from && $to) {
-            $weather = WeatherController::filterDate($weather, $from, $to);
+            $weather->data = WeatherService::filterDateRange($weather->data, $from, $to);
         }
         return response()->json($weather);
     }
