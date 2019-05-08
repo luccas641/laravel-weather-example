@@ -560,4 +560,17 @@ class WatherTest extends TestCase
         $response
             ->assertStatus(404);
     }
+
+    /**
+    * A basic feature test example.
+    *
+    * @return void
+    */
+    public function testInvalidCall()
+    {
+      $response = $this->json('GET', '/api/cities/3531732/weather?from=1489427999');
+
+       $response
+           ->assertStatus(422);
+   }
 }
